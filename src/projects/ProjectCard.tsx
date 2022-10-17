@@ -8,6 +8,11 @@ interface ProjectCardProps {
     project: Project;
 }
 
+
+function handleClick(projectBeingEdited: Project) {
+
+    console.log(projectBeingEdited);
+}
 function ProjectCard(props: ProjectCardProps) {
     const { project } = props;
     return (
@@ -18,6 +23,10 @@ function ProjectCard(props: ProjectCardProps) {
                 <p>{formatDescription(project.description)}</p>
                 <p>{project.budget.toLocaleString()} M €</p>
             </section>
+            <button className="bordered" onClick={() => { handleClick(project) }}>
+                <span className="icon-edit"></span>
+                Edit
+            </button>
         </div>
     );
 
