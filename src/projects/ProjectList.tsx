@@ -1,5 +1,6 @@
 import { Project } from "./Project";
 import ProjectCard from "./ProjectCard";
+import ProjectForm from "./ProjectFrom";
 
 
 interface ProjectListProps {
@@ -17,6 +18,7 @@ function FruitListItem(props: ProjectListItemProps) {
     const { project } = props;
     return <div className="cols-sm">
         <ProjectCard project={project} />
+        <ProjectForm />
     </div>
 }
 
