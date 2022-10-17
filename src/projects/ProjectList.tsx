@@ -20,10 +20,15 @@ function FruitListItem(props: ProjectListItemProps) {
         setProjectBeingEdited(project);
     }
 
+    const cancelEditing = () => {
+        setProjectBeingEdited({});
+    }
     const { project } = props;
     return <div className="cols-sm">
-        {project === projectBeingEdited ? (<ProjectForm />) : (<ProjectCard project={project} onEdit={handleEdit}></ProjectCard>)
-
+        {project === projectBeingEdited ?
+            (<ProjectForm onCancel={cancelEditing} />)
+            :
+            (<ProjectCard project={project} onEdit={handleEdit}></ProjectCard>)
         }
     </div>
 }
