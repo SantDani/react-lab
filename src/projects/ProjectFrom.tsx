@@ -1,6 +1,10 @@
 import React from "react";
 
+
+
 function ProjectForm() {
+
+
     return (
         <form className="input-group vertical">
             <label htmlFor="name">Project Name</label>
@@ -14,7 +18,7 @@ function ProjectForm() {
             <div className="input-group">
                 <button className="primary bordered medium">Save</button>
                 <span />
-                <button type="button" className="bordered medium">
+                <button type="button" className="bordered medium" >
                     cancel
                 </button>
             </div>
