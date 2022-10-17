@@ -6,15 +6,17 @@ import ProjectForm from "./ProjectFrom";
 
 interface ProjectListProps {
     projects: Project[];
+    onSave: (project: Project) => void;
 }
 
 interface ProjectListItemProps {
     project: Project;
+    onSave: (project: Project) => void;
 }
 
 
 
-function FruitListItem(props: ProjectListItemProps) {
+function FruitListItem({ project, onSave }: ProjectListItemProps) {
     const [projectBeingEdited, setProjectBeingEdited] = useState({});
     const handleEdit = (project: Project) => {
         setProjectBeingEdited(project);
@@ -23,20 +25,22 @@ function FruitListItem(props: ProjectListItemProps) {
     const cancelEditing = () => {
         setProjectBeingEdited({});
     }
-    const { project } = props;
+
+    console.log('onSave ProjectListItemProps');
+
+
     return <div className="cols-sm">
         {project === projectBeingEdited ?
-            (<ProjectForm onCancel={cancelEditing} />)
+            (<ProjectForm onCancel={cancelEditing} onSave={onSave} />)
             :
             (<ProjectCard project={project} onEdit={handleEdit}></ProjectCard>)
         }
     </div>
 }
 
-function ProjectList({ projects }: ProjectListProps) {
-
-
-    const projectsListItems = projects.map(project => <FruitListItem key={project.id} project={project}></FruitListItem>);
+function ProjectList({ projects, onSave }: ProjectListProps) {
+    console.log('onSave ProjectListProps');
+    const projectsListItems = projects.map(project => <FruitListItem key={project.id} project={project} onSave={onSave}></FruitListItem>);
     return <div className="row">{projectsListItems}</div>;
 }
 
