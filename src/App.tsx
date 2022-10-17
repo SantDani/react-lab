@@ -1,9 +1,10 @@
 import React from 'react';
 import './App.css';
+import ProjectsPage from './projects/ProjectsPage';
 
 function App() {
   return (
-<blockquote> Tell me and I forget, teach me and I may remember, involve me an I learn.</blockquote>
+    <ProjectsPage/>
   );
 }
 
