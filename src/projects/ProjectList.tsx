@@ -15,9 +15,12 @@ interface ProjectListItemProps {
 
 function FruitListItem(props: ProjectListItemProps) {
 
+    const handleEdit = (project: Project) => {
+        console.log(project);
+    }
     const { project } = props;
     return <div className="cols-sm">
-        <ProjectCard project={project} />
+        <ProjectCard project={project} onEdit={handleEdit} />
         <ProjectForm />
     </div>
 }
